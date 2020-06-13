@@ -1,12 +1,12 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { colors } from '../../../utils'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { colors, fonts } from '../../../utils'
 
-const Link = ({title,size, align}) => {
+const Link = ({title,size, align, onPress}) => {
     return (
-        <View>
+        <TouchableOpacity onPress={onPress} >
             <Text style={styles.text(size, align)}>{title}</Text>
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     text : (size, align) => ({
         fontSize : size,
         color : colors.text.secondary,
-        fontFamily: 'Nunito-Regular',
+        fontFamily: fonts.primary[400],
         textDecorationLine : 'underline',
         textAlign : align,
     })

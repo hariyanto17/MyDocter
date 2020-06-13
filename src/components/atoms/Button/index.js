@@ -1,13 +1,24 @@
 import React from 'react'
-import { StyleSheet, Text, TouchableOpacity } from 'react-native'
-import { colors } from '../../../utils'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { colors, fonts } from '../../../utils'
 import IconOnly from './IconOnly'
+import BtnIconSend from './BtnIconSend'
 
 
-const Button = ({type, title, onPress, icon}) => {
+const Button = ({type, title, onPress, icon, disable}) => {
+    if (type === 'btn-icon-send') {
+        return <BtnIconSend disable={disable} />
+    }
     if (type === 'icon-only') {
         return(
             <IconOnly icon={icon} onPress={onPress}/>
+        )
+    }
+    if(disable) {
+        return(
+            <View style={styles.disableBg}>
+                <Text style={styles.disableText}>{title}</Text>
+            </View> 
         )
     }
     return (
@@ -25,12 +36,22 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         borderRadius: 10,
     }),
-    text: type => (
-        {
-            fontSize : 18,
-            fontFamily: 'Nunito-SemiBold',
-            textAlign: 'center',
-            color: type === 'secondary' ? colors.button.secondary.text : colors.button.primary.text
-        }
-    )
+    disableBg : {
+        paddingVertical: 10,
+        borderRadius: 10,
+        backgroundColor : colors.button.disable.background,
+    },
+    text : type => ({
+        fontSize : 18,
+        fontFamily: fonts.primary[600],
+        textAlign: 'center',
+        color: type === 'secondary' ? colors.button.secondary.text : colors.button.primary.text
+    }),
+    disableText : {
+        fontSize : 18,
+        fontFamily: fonts.primary[600],
+        textAlign: 'center',
+        color : colors.button.disable.text,
+    }
+
 })

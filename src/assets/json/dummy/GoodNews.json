@@ -1,0 +1,19 @@
+{
+    "data" : [
+        {
+            "id" : 1,
+            "judul" : "ia it safe to stay at home during coronavirus",
+            "date" : "today"
+        },
+        {
+            "id" : 2,
+            "judul" : "Consume yellow citrus helps yuo healthier",
+            "date" : "today"
+        },
+        {
+            "id" : 3,
+            "judul" : "Learn how to make a proper orange juice at home",
+            "date" : "today"
+        }
+    ]
+}
